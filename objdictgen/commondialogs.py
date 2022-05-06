@@ -686,9 +686,11 @@ class NodeInfosDialog(wx.Dialog):
     def _init_ctrls(self, prnt):
         wx.Dialog.__init__(self, id=ID_NODEINFOSDIALOG,
               name='NodeInfosDialog', parent=prnt, pos=wx.Point(376, 223),
-              size=wx.Size(300, 280), style=wx.DEFAULT_DIALOG_STYLE,
+            #   size=wx.Size(300, 280), style=wx.DEFAULT_DIALOG_STYLE, # Uncomment by Yun @20220506
+              size=wx.Size(300, 320), style=wx.DEFAULT_DIALOG_STYLE, # Add by Yun @20220506
               title=_('Node infos'))
-        self.SetClientSize(wx.Size(300, 280))
+        # self.SetClientSize(wx.Size(300, 280)) # Uncomment by Yun @20220506
+        self.SetClientSize(wx.Size(300, 320)) # Add by Yun @20220506
 
         self.staticText1 = wx.StaticText(id=ID_NODEINFOSDIALOGSTATICTEXT1,
               label=_('Name:'), name='staticText1', parent=self,
@@ -738,8 +740,9 @@ class NodeInfosDialog(wx.Dialog):
     def __init__(self, parent):
         self._init_ctrls(parent)
         
-        self.staticText2.Hide()
-        self.NodeID.Hide()
+        # Uncomment by Yun @20220506
+        # self.staticText2.Hide()
+        # self.NodeID.Hide()
         
         for node_type in GetNodeTypes():
             self.Type.Append(_(node_type))
@@ -997,8 +1000,9 @@ class CreateNodeDialog(wx.Dialog):
     def __init__(self, parent,buttons=wx.OK|wx.CANCEL):
         self._init_ctrls(parent,buttons)
         
-        self.staticText3.Hide()
-        self.NodeID.Hide()
+        # Uncomment by Yun @20220506
+        # self.staticText3.Hide()
+        # self.NodeID.Hide()
         
         self.NodeID.SetValue("0x00")
         for node_type in GetNodeTypes():

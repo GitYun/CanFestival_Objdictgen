@@ -279,7 +279,7 @@ class NodeManager:
             node = load(file)
             file.close()
             self.CurrentNode = node
-            self.CurrentNode.SetNodeID(0)
+            # self.CurrentNode.SetNodeID(0) # Uncomment by Yun @20220506
             # Add a new buffer and defining current state
             index = self.AddNodeBuffer(self.CurrentNode.Copy(), True)
             self.SetCurrentFilePath(filepath)
